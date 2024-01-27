@@ -2,7 +2,6 @@
 
 direction=$1
 
-# direction must be one of the following: north, east, south, west, prev, next
 # if direction is not valid, exit
 if [[ ! "$direction" =~ ^(north|east|south|west)$ ]]; then
     exit 1
