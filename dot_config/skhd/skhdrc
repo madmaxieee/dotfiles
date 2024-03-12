@@ -1,24 +1,26 @@
 #!/usr/bin/env sh
 # shellcheck disable=all
 
-# cmd - k : ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
+# bind cmd+m to noop
+cmd - m : true
 
 alt - p : yabai -m window --focus stack.prev
 alt - n : yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
 # 0x32 = backtick
-cmd - 0x32 : ~/.config/skhd/toggle_space.sh 1
+cmd - 0x32 : ~/.config/yabai/toggle_space.sh 1
+cmd - escape : ~/.config/yabai/toggle_space.sh 3
 
-ctrl + shift - h : yabai -m window --focus west || ~/.config/skhd/focus_display.sh west
-ctrl + shift - j : yabai -m window --focus south || ~/.config/skhd/focus_display.sh south
-ctrl + shift - k : yabai -m window --focus north || ~/.config/skhd/focus_display.sh north
-ctrl + shift - l : yabai -m window --focus east || ~/.config/skhd/focus_display.sh east
+ctrl + shift - h : yabai -m window --focus west || ~/.config/yabai/focus_display.sh west
+ctrl + shift - j : yabai -m window --focus south || ~/.config/yabai/focus_display.sh south
+ctrl + shift - k : yabai -m window --focus north || ~/.config/yabai/focus_display.sh north
+ctrl + shift - l : yabai -m window --focus east || ~/.config/yabai/focus_display.sh east
 
 # swap
-alt + shift - h : ~/.config/skhd/swap_and_focus.sh west
-alt + shift - j : ~/.config/skhd/swap_and_focus.sh south
-alt + shift - k : ~/.config/skhd/swap_and_focus.sh north
-alt + shift - l : ~/.config/skhd/swap_and_focus.sh east
+alt + shift - h : ~/.config/yabai/swap_and_focus.sh west
+alt + shift - j : ~/.config/yabai/swap_and_focus.sh south
+alt + shift - k : ~/.config/yabai/swap_and_focus.sh north
+alt + shift - l : ~/.config/yabai/swap_and_focus.sh east
 
 # resize
 cmd + shift - h : yabai -m window west --resize right:-50:0 || yabai -m window --resize right:-50:0
@@ -32,34 +34,33 @@ ctrl - right : yabai -m space --focus next
 ctrl - left : yabai -m space --focus prev
 
 # move to space
-alt + shift - 1 : yabai -m window --space 1
-alt + shift - 2 : yabai -m window --space 2
-alt + shift - 3 : yabai -m window --space 3
-alt + shift - 4 : yabai -m window --space 4
-alt + shift - 5 : yabai -m window --space 5
-alt + shift - 6 : yabai -m window --space 6
-alt + shift - 7 : yabai -m window --space 7
-alt + shift - 8 : yabai -m window --space 8
-alt + shift - 9 : yabai -m window --space 9
-alt + shift - 0 : yabai -m window --space 10
+alt + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
+alt + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
+alt + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
+alt + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
+alt + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
+alt + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # # go to space
-# cmd - 1 : ~/.config/skhd/focus_window_in_space.sh 1 || yabai -m space --focus 1
-# cmd - 2 : ~/.config/skhd/focus_window_in_space.sh 2 || yabai -m space --focus 2
-# cmd - 3 : ~/.config/skhd/focus_window_in_space.sh 3 || yabai -m space --focus 3
-# cmd - 4 : ~/.config/skhd/focus_window_in_space.sh 4 || yabai -m space --focus 4
-# cmd - 5 : ~/.config/skhd/focus_window_in_space.sh 5 || yabai -m space --focus 5
-# cmd - 6 : ~/.config/skhd/focus_window_in_space.sh 6 || yabai -m space --focus 6
-# cmd - 7 : ~/.config/skhd/focus_window_in_space.sh 7 || yabai -m space --focus 7
-# cmd - 8 : ~/.config/skhd/focus_window_in_space.sh 8 || yabai -m space --focus 8
-# cmd - 9 : ~/.config/skhd/focus_window_in_space.sh 9 || yabai -m space --focus 9
-# cmd - 0 : ~/.config/skhd/focus_window_in_space.sh 10 || yabai -m space --focus 10
+# cmd - 1 : ~/.config/yabai/focus_window_in_space.sh 1 || yabai -m space --focus 1
+# cmd - 2 : ~/.config/yabai/focus_window_in_space.sh 2 || yabai -m space --focus 2
+# cmd - 3 : ~/.config/yabai/focus_window_in_space.sh 3 || yabai -m space --focus 3
+# cmd - 4 : ~/.config/yabai/focus_window_in_space.sh 4 || yabai -m space --focus 4
+# cmd - 5 : ~/.config/yabai/focus_window_in_space.sh 5 || yabai -m space --focus 5
+# cmd - 6 : ~/.config/yabai/focus_window_in_space.sh 6 || yabai -m space --focus 6
+# cmd - 7 : ~/.config/yabai/focus_window_in_space.sh 7 || yabai -m space --focus 7
+# cmd - 8 : ~/.config/yabai/focus_window_in_space.sh 8 || yabai -m space --focus 8
+# cmd - 9 : ~/.config/yabai/focus_window_in_space.sh 9 || yabai -m space --focus 9
+# cmd - 0 : ~/.config/yabai/focus_window_in_space.sh 10 || yabai -m space --focus 10
 
 ctrl + alt - return : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --toggle zoom-fullscreen
 
 # Launching Apps
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance --working-directory ~
-cmd + shift - a : hs -c "NewArcWindow()"
+# moved to hammerspoon
 
 # Space Layouts
 cmd + alt - f : yabai -m space --layout float
