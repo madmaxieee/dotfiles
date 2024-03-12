@@ -27,6 +27,14 @@ abbr -a -- mmd mamba deactivate
 abbr -a -- a2 aria2c
 abbr -a -- du dust
 abbr -a -- df duf
-abbr -a -- rmm /bin/rm -rf
+abbr -a -- rm rip
+abbr -a -- rmm rm -rf
+abbr -a -- n npm
+abbr -a -- nr npm run
+abbr -a -- tm tmux
+abbr -a -- ta tmux attach -t
+abbr -a -- tn tmux new
+abbr -a -- b bun
+abbr -a -- bx bunx
 
 abbr -a -- lh localhost

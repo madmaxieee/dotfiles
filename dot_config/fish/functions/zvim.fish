@@ -5,7 +5,7 @@ function zvim -d "use zoxide query with the nvim command"
         return 1
     end
     set -l path (zoxide query $argv[1]) || return 1
-    # prompt for comfirmation
+    # prompt for confirmation
     read --prompt "echo \"Go to $path? (y/n) \"" -l choice
     if test "$choice" != n -a "$choice" != N
         cd $path
