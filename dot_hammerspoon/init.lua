@@ -1,8 +1,10 @@
 require("hs.ipc")
 require("reload")
-require("wallpaper")
 
-local scratchpad = require("scratchpad")
-hs.hotkey.bind({ "command" }, "`", function()
-    scratchpad("kitty")
-end)
+hs.application.enableSpotlightForNameSearches(true)
+
+-- require("recurive_binder")
+require("bindings")
+
+Wallpaper = require("wallpaper")
+ToggleScratchpad = require("scratchpad")
