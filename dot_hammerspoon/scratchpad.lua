@@ -1,4 +1,4 @@
-return function(app_name)
+local function toggle_scratchpad(app_name)
     local spaceID = hs.spaces.focusedSpace()
     local app = hs.application.get(app_name)
 
@@ -17,3 +17,5 @@ return function(app_name)
         app:activate()
     end
 end
+
+return toggle_scratchpad
