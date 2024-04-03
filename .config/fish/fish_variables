@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export AICHAT_CONFIG_DIR:/Users/madmax/\x2econfig/aichat
 SETUVAR --export EDITOR:nvim
 SETUVAR --export HOMEBREW_NO_ENV_HINTS:true
 SETUVAR --export OMP_WAIT_POLICY:PASSIVE
