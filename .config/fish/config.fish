@@ -28,8 +28,8 @@ zoxide init fish | source
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-set -gx MAMBA_EXE "/opt/homebrew/opt/micromamba/bin/micromamba"
-set -gx MAMBA_ROOT_PREFIX "/Users/madmax/micromamba"
+set -gx MAMBA_EXE /opt/homebrew/opt/micromamba/bin/micromamba
+set -gx MAMBA_ROOT_PREFIX /Users/madmax/micromamba
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 
@@ -53,4 +53,4 @@ set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
 set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
 
 eval "$(luarocks path --bin)" # you can also add LUA_PATH based on your own setup
-set -gx DYLD_LIBRARY_PATH /opt/homebrew/Cellar/imagemagick/7.1.1-28/lib # check your imagemagic installation path; this resolve dyld loading failure
+set -gx DYLD_LIBRARY_PATH /opt/homebrew/Cellar/imagemagick/7.1.1-29_1/lib # check your imagemagic installation path; this resolve dyld loading failure
