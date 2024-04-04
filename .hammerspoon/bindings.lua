@@ -34,10 +34,10 @@ end)
 
 local leader_mode = hs.hotkey.modal.new("shift", "space")
 
-leader_mode:bind("", "n", function()
-    ToggleScratchpad("Heptabase")
-    leader_mode:exit()
-end)
+-- leader_mode:bind("", "n", function()
+--     ToggleScratchpad("Heptabase")
+--     leader_mode:exit()
+-- end)
 
 leader_mode:bind("", "escape", function()
     leader_mode:exit()
