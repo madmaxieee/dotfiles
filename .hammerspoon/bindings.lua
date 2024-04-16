@@ -18,19 +18,18 @@ local function new_icognito_arc_window()
     end
 end
 
-local function quick_note()
-    hs.eventtap.keyStroke({ "fn" }, "q")
-end
-
-hs.hotkey.bind("ctrl", "q", function()
-    local app = hs.application.find("Notes", true)
-    if app ~= nil and app:isFrontmost() then
-        app:hide()
-        return
-    else
-        quick_note()
-    end
-end)
+-- local function quick_note()
+--     hs.eventtap.keyStroke({ "fn" }, "q")
+-- end
+-- hs.hotkey.bind("ctrl", "q", function()
+--     local app = hs.application.find("Notes", true)
+--     if app ~= nil and app:isFrontmost() then
+--         app:hide()
+--         return
+--     else
+--         quick_note()
+--     end
+-- end)
 
 local leader_mode = hs.hotkey.modal.new("shift", "space")
 
