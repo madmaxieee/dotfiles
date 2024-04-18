@@ -2,6 +2,7 @@
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 imports:
   - private.yml
+  - links.yml
 
 matches:
   - trigger: ":td"
