@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # focus a space while ignoring Arc PIP windows
 
+PATH="/opt/homebrew/bin"
+
 space_index=$1
 
 # if any window other than Arc PIP has focus

@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+PATH="/bin:/opt/homebrew/bin"
 
 target_space_index="$1"
 

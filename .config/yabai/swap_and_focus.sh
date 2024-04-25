@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PATH="/opt/homebrew/bin"
+
 direction=$1
 
 # if direction is not valid, exit
