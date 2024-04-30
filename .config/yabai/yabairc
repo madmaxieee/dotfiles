@@ -46,6 +46,7 @@ yabai -m rule --add manage=off app='^Archive Utility$'
 yabai -m rule --add manage=off app='^SpotMenu$'
 yabai -m rule --add manage=off app="^Fantastical Helper$"
 yabai -m rule --add manage=off app="^Python$"
+yabai -m rule --add manage=off app="^python3$"
 yabai -m rule --add manage=off app="^CleanShot X$"
 yabai -m rule --add manage=off app="^Ivanti Secure Access Client$"
 yabai -m rule --add manage=off sticky=on app="^Notes$" title!="^Notes$"
