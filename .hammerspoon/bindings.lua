@@ -11,10 +11,10 @@ leader_mode:bind("", "m", function()
     leader_mode:exit()
 end)
 
-leader_mode:bind("", "n", function()
-    ToggleScratchpad("Heptabase")
-    leader_mode:exit()
-end)
+-- leader_mode:bind("", "n", function()
+--     ToggleScratchpad("Heptabase")
+--     leader_mode:exit()
+-- end)
 
 -- debug query
 leader_mode:bind("shift", "q", function()
