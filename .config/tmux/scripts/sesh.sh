@@ -1,11 +1,7 @@
 #! /usr/bin/env bash
 
-dedup() {
-	/bin/cat -n | sort -k2 | uniq -f1 | sort -k1 | cut -f2
-}
-
 session="$(
- sesh list | tr '[:upper:]' '[:lower:]' | dedup | fzf-tmux -p 55%,60% \
+ sesh list | fzf-tmux -p 55%,60% \
 		--no-sort --border-label ' sesh ' --prompt '⚡  ' \
 		--header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
 		--bind 'tab:down,btab:up' \

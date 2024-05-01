@@ -24,6 +24,8 @@ if status is-interactive
     end
 end
 
+set -gx _ZO_DATA_DIR "$HOME/.local/share"
+set -gx _ZO_RESOLVE_SYMLINKS 1
 zoxide init fish | source
 
 # >>> mamba initialize >>>
@@ -32,11 +34,6 @@ set -gx MAMBA_EXE /opt/homebrew/opt/micromamba/bin/micromamba
 set -gx MAMBA_ROOT_PREFIX /Users/madmax/micromamba
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
-
-# # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/madmax/Documents/scripts/google-cloud-sdk/path.fish.inc' ]
-    . /Users/madmax/Documents/scripts/google-cloud-sdk/path.fish.inc
-end
 
 # pnpm
 set -gx PNPM_HOME /Users/madmax/Library/pnpm
