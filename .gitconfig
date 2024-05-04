@@ -32,7 +32,7 @@
 	sub = submodule
 	zip = archive HEAD --output
 	tgz = archive --format=tgz HEAD --output
-  bs = bisect
+	bs = bisect
 [init]
 	defaultBranch = main
 [core]
