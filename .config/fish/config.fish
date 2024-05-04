@@ -7,6 +7,10 @@ if status is-interactive
     bind \cr _atuin_search
     bind -M insert \cr _atuin_search
 
+    set -gx _ZO_DATA_DIR "$HOME/.local/share"
+    set -gx _ZO_RESOLVE_SYMLINKS 1
+    zoxide init fish | source
+
     if [ $TERM = xterm-kitty ]
         alias ssh='TERM=xterm-256color /usr/bin/ssh'
     end
@@ -23,10 +27,6 @@ if status is-interactive
         tmux new-session -A -s main >/dev/null 2>&1
     end
 end
-
-set -gx _ZO_DATA_DIR "$HOME/.local/share"
-set -gx _ZO_RESOLVE_SYMLINKS 1
-zoxide init fish | source
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
