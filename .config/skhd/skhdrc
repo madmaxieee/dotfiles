@@ -59,8 +59,6 @@ alt + shift - p : yabai -m window --space prev && yabai -m space --focus prev
 # cmd - 9 : ~/.config/yabai/focus_window_in_space.sh 9 || yabai -m space --focus 9
 # cmd - 0 : ~/.config/yabai/focus_window_in_space.sh 10 || yabai -m space --focus 10
 
-ctrl + alt - return : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --toggle zoom-fullscreen
-
 # Launching Apps
 # moved to hammerspoon
 
@@ -70,27 +68,30 @@ ctrl + alt - return : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --to
 # cmd + alt + shift - s : yabai -m space --layout stack
 
 # floating mode
-cmd + alt + shift - f : yabai -m config layout float
-cmd + alt + shift - b : yabai -m config layout bsp
-cmd + alt + shift - s : yabai -m config layout stack
+# cmd + alt + shift - f : yabai -m config layout float
+# cmd + alt + shift - b : yabai -m config layout bsp
+# cmd + alt + shift - s : yabai -m config layout stack
 
 # --grid <rows>:<cols>:<start-x>:<start-y>:<width>:<height>
+#
+# # 1/2
+# ctrl + alt - h : yabai -m window --grid 1:2:0:0:1:1 # 1/2 left
+# ctrl + alt - l : yabai -m window --grid 1:2:1:0:1:1 # 1/2 right
+#
+# # 1/4
+# ctrl + alt - r : yabai -m window --grid 2:2:0:0:1:1 # 1/4 top left
+# ctrl + alt - t : yabai -m window --grid 2:2:1:0:1:1 # 1/4 top right
+# ctrl + alt - f : yabai -m window --grid 2:2:0:1:1:1 # 1/4 bottom left
+# ctrl + alt - g : yabai -m window --grid 2:2:1:1:1:1 # 1/4 bottom right
+#
+# # 1/3
+# ctrl + alt - a : yabai -m window --grid 1:3:0:0:1:1 # 1/3 left
+# ctrl + alt - s : yabai -m window --grid 1:3:1:0:1:1 # 1/3 mid
+# ctrl + alt - d : yabai -m window --grid 1:3:2:0:1:1 # 1/3 right
+#
+# # 2/3
+# ctrl + alt - q : yabai -m window --grid 1:3:0:0:2:1 # 2/3 left
+# ctrl + alt - e : yabai -m window --grid 1:3:1:0:2:1 # 2/3 right
+#
+# ctrl + alt - return : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --toggle zoom-fullscreen
 
-# 1/2
-ctrl + alt - h : yabai -m window --grid 1:2:0:0:1:1 # 1/2 left
-ctrl + alt - l : yabai -m window --grid 1:2:1:0:1:1 # 1/2 right
-
-# 1/4
-ctrl + alt - r : yabai -m window --grid 2:2:0:0:1:1 # 1/4 top left
-ctrl + alt - t : yabai -m window --grid 2:2:1:0:1:1 # 1/4 top right
-ctrl + alt - f : yabai -m window --grid 2:2:0:1:1:1 # 1/4 bottom left
-ctrl + alt - g : yabai -m window --grid 2:2:1:1:1:1 # 1/4 bottom right
-
-# 1/3
-ctrl + alt - a : yabai -m window --grid 1:3:0:0:1:1 # 1/3 left
-ctrl + alt - s : yabai -m window --grid 1:3:1:0:1:1 # 1/3 mid
-ctrl + alt - d : yabai -m window --grid 1:3:2:0:1:1 # 1/3 right
-
-# 2/3
-ctrl + alt - q : yabai -m window --grid 1:3:0:0:2:1 # 2/3 left
-ctrl + alt - e : yabai -m window --grid 1:3:1:0:2:1 # 2/3 right
