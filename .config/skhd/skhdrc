@@ -28,8 +28,8 @@ cmd + shift - k : yabai -m window north --resize bottom:0:50 || yabai -m window 
 cmd + shift - j : yabai -m window south --resize top:0:-50 || yabai -m window --resize top:0:-50
 cmd + shift - l : yabai -m window east --resize left:50:0 || yabai -m window --resize left:50:0
 
-cmd + ctrl - right : yabai -m window --space next && yabai -m space --focus next
-cmd + ctrl - left : yabai -m window --space prev && yabai -m space --focus prev
+# cmd + ctrl - right : yabai -m window --space next && yabai -m space --focus next
+# cmd + ctrl - left : yabai -m window --space prev && yabai -m space --focus prev
 ctrl - right : yabai -m space --focus next
 ctrl - left : yabai -m space --focus prev
 
