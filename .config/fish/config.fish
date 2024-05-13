@@ -50,4 +50,4 @@ set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
 set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
 
 eval "$(luarocks path --bin)" # you can also add LUA_PATH based on your own setup
-set -gx DYLD_LIBRARY_PATH /opt/homebrew/Cellar/imagemagick/7.1.1-31/lib # check your imagemagic installation path; this resolve dyld loading failure
+set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -type d -name lib) # check your imagemagic installation path; this resolve dyld loading failure
