@@ -128,27 +128,38 @@ lock_mode:bind({ "shift" }, "space", function()
     hs.alert("lock mode activated")
 end)
 
+-- app soecific bindings
 local app_bind_handlers = {}
 
--- app soecific bindings
 local function app_bind(app_name, modifiers, key, fn)
-    local handler_key = app_name .. ":" .. table.concat(modifiers, "-") .. "+" .. key
-    local handler = hs.hotkey.bind(modifiers, key, function()
-        local app = hs.application.frontmostApplication()
-        if app:name() == app_name then
-            fn(app)
-        else
-            app_bind_handlers[handler_key].handler:disable()
-            hs.eventtap.keyStroke(modifiers, key)
-            app_bind_handlers[handler_key].handler:enable()
-        end
-    end)
-    app_bind_handlers[handler_key] = {
-        app_name = app_name,
-        handler = handler,
-    }
+    local handler = hs.hotkey.bind(modifiers, key, fn)
+    if app_bind_handlers[app_name] == nil then
+        app_bind_handlers[app_name] = {}
+    end
+    table.insert(app_bind_handlers[app_name], handler)
 end
 
-app_bind("Messenger", { "cmd" }, "w", function(app)
-    app:hide()
+-- to make scratchpad work better
+app_bind("Messenger", { "cmd" }, "w", function()
+    local app = hs.application.frontmostApplication()
+    local num_windows = #app:allWindows()
+    if num_windows == 1 then
+        app:hide()
+    else
+        app:focusedWindow():close()
+    end
 end)
+
+---@diagnostic disable-next-line: unused-local
+local app_watcher = hs.application.watcher.new(function(app_name, event_type, app)
+    if event_type == hs.application.watcher.activated then
+        for _, handler in ipairs(app_bind_handlers[app_name]) do
+            handler:enable()
+        end
+    elseif event_type == hs.application.watcher.deactivated then
+        for _, handler in ipairs(app_bind_handlers[app_name]) do
+            handler:disable()
+        end
+    end
+end)
+app_watcher:start()
