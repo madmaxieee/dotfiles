@@ -127,3 +127,28 @@ end)
 lock_mode:bind({ "shift" }, "space", function()
     hs.alert("lock mode activated")
 end)
+
+local app_bind_handlers = {}
+
+-- app soecific bindings
+local function app_bind(app_name, modifiers, key, fn)
+    local handler_key = app_name .. ":" .. table.concat(modifiers, "-") .. "+" .. key
+    local handler = hs.hotkey.bind(modifiers, key, function()
+        local app = hs.application.frontmostApplication()
+        if app:name() == app_name then
+            fn(app)
+        else
+            app_bind_handlers[handler_key].handler:disable()
+            hs.eventtap.keyStroke(modifiers, key)
+            app_bind_handlers[handler_key].handler:enable()
+        end
+    end)
+    app_bind_handlers[handler_key] = {
+        app_name = app_name,
+        handler = handler,
+    }
+end
+
+app_bind("Messenger", { "cmd" }, "w", function(app)
+    app:hide()
+end)
