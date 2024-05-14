@@ -150,20 +150,19 @@ app_bind("Messenger", { "cmd" }, "w", function()
     end
 end)
 
-local active_app_name = hs.application.frontmostApplication():name()
-for app_name, handlers in pairs(app_bind_handlers) do
-    if app_name ~= active_app_name then
-        for _, handler in ipairs(handlers) do
-            handler:disable()
-        end
-    end
-end
-
 ---@diagnostic disable-next-line: unused-local
 local app_watcher = hs.application.watcher.new(function(app_name, event_type, app)
     if event_type == hs.application.watcher.activated then
-        for _, handler in ipairs(app_bind_handlers[app_name]) do
-            handler:enable()
+        for name, handlers in pairs(app_bind_handlers) do
+            if name == app_name then
+                for _, handler in ipairs(handlers) do
+                    handler:enable()
+                end
+            else
+                for _, handler in ipairs(handlers) do
+                    handler:disable()
+                end
+            end
         end
     elseif event_type == hs.application.watcher.deactivated then
         for _, handler in ipairs(app_bind_handlers[app_name]) do
