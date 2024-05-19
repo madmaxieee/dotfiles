@@ -19,6 +19,7 @@ end)
 -- debug query
 leader_mode:bind("shift", "q", function()
     os.execute(YABAI .. [[ -m query --windows --space > /tmp/query]])
+    hs.alert("saved yabai query result")
     leader_mode:exit()
 end)
 
