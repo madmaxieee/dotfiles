@@ -20,7 +20,6 @@ abbr -a -- copy pbcopy
 abbr -a -- paste pbpaste
 abbr -a -- diff difft
 abbr -a -- zel zellij
-abbr -a -- che chezmoi
 abbr -a -- mm mamba
 abbr -a -- mma mamba activate
 abbr -a -- mmd mamba deactivate
@@ -36,5 +35,8 @@ abbr -a -- ta tmux attach -t
 abbr -a -- tn tmux new
 abbr -a -- b bun
 abbr -a -- bx bunx
+
+abbr -a -- gr gradle
+abbr -a -- grr 'gradle run'
 
 abbr -a -- lh localhost
