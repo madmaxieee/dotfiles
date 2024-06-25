@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 session="$(
- sesh list | fzf-tmux -p 55%,60% \
+ sesh list | grep -v -E '^popup-.+' | fzf-tmux -p 55%,60% \
 		--no-sort --border-label ' sesh ' --prompt '⚡  ' \
 		--header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
 		--bind 'tab:down,btab:up' \
