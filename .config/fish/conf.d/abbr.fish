@@ -31,12 +31,12 @@ abbr -a -- rmm rm -rf
 abbr -a -- n npm
 abbr -a -- nr npm run
 abbr -a -- tm tmux
-abbr -a -- ta tmux attach -t
+abbr -a -- ta tmux attach
 abbr -a -- tn tmux new
 abbr -a -- b bun
 abbr -a -- bx bunx
 
 abbr -a -- gr gradle
-abbr -a -- grr 'gradle run'
+abbr -a -- grr gradle -q --console plain run
 
 abbr -a -- lh localhost
