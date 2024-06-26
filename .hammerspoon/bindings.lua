@@ -2,6 +2,20 @@ local YABAI = "/opt/homebrew/bin/yabai"
 
 local leader_mode = hs.hotkey.modal.new("shift", "space")
 
+-- disable leader mode when the last key is not pressed in 1 second
+local last_enter_time = 0
+function leader_mode:entered()
+    local current_time = hs.timer.absoluteTime()
+    -- this current time is bind to this specific callback
+    -- would only exit when the leader key is not pressed in the next 1 second
+    last_enter_time = current_time
+    hs.timer.doAfter(1, function()
+        if last_enter_time == current_time then
+            leader_mode:exit()
+        end
+    end)
+end
+
 leader_mode:bind("", "escape", function()
     leader_mode:exit()
 end)
@@ -10,11 +24,6 @@ leader_mode:bind("", "m", function()
     ToggleScratchpad("Messenger")
     leader_mode:exit()
 end)
-
--- leader_mode:bind("", "n", function()
---     ToggleScratchpad("Heptabase")
---     leader_mode:exit()
--- end)
 
 -- debug query
 leader_mode:bind("shift", "q", function()
