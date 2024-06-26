@@ -42,6 +42,8 @@ yabai -m rule --add space=^'todo' app="^Fantastical$"
 # apps to not manage (ignore)
 yabai -m rule --add manage=off app='^System Settings$'
 yabai -m rule --add manage=off app='^Messenger$'
+yabai -m rule --add manage=off app='^LINE$'
+yabai -m rule --add manage=off app='^Telegram$'
 yabai -m rule --add manage=off sticky=on app='^Keymapp$'
 yabai -m rule --add manage=off app='^Archive Utility$'
 yabai -m rule --add manage=off app='^SpotMenu$'
