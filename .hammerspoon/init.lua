@@ -7,3 +7,4 @@ Wallpaper = require("wallpaper")
 ToggleScratchpad = require("scratchpad")
 
 require("bindings")
+require("app_bindings")
