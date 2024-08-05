@@ -20,6 +20,10 @@ leader_mode:bind("", "escape", function()
     leader_mode:exit()
 end)
 
+leader_mode:bind("", "f", function()
+    os.execute(YABAI .. [[ -m window --toggle float]])
+end)
+
 leader_mode:bind("", "m", function()
     ToggleScratchpad("Messenger")
     leader_mode:exit()
