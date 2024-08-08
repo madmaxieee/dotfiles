@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+tmux new-session -d -s main -c "$HOME"
+
 session="$(
  sesh list | grep -v -E '.__popup$' | fzf-tmux -p 55%,60% \
 		--no-sort --border-label ' sesh ' --prompt '⚡  ' \
