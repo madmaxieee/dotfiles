@@ -58,5 +58,5 @@ set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -t
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-test -r '/Users/madmax/.opam/opam-init/init.fish' && source '/Users/madmax/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+test -r '/Users/madmax/.opam/opam-init/init.fish' && source '/Users/madmax/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
 # END opam configuration
