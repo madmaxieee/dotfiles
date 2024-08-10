@@ -39,7 +39,8 @@ yabai -m space 3 --label 'todo'
 yabai -m rule --add space=^'todo' app="^Things$"
 yabai -m rule --add space=^'todo' app="^Fantastical$"
 
-# apps to not manage (ignore)
+# apps to not manage (keep floating)
+yabai -m rule --add manage=off app='^Finder$'
 yabai -m rule --add manage=off app='^System Settings$'
 yabai -m rule --add manage=off app='^Messenger$'
 yabai -m rule --add manage=off app='^LINE$'
@@ -51,7 +52,6 @@ yabai -m rule --add manage=off app="^Fantastical Helper$"
 yabai -m rule --add manage=off app="^Python$"
 yabai -m rule --add manage=off app="^python3$"
 yabai -m rule --add manage=off app="^CleanShot X$"
-yabai -m rule --add manage=off app="^Ivanti Secure Access Client$"
 yabai -m rule --add manage=off sticky=on app="^Notes$" title!="^Notes$"
 
 ~/.config/yabai/borders.sh
