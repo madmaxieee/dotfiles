@@ -101,9 +101,14 @@ leader_bind("shift", "q", function()
     leader_mode:exit()
 end)
 
--- toggle window float
+-- toggle window float or sticky
 leader_bind("", "f", function()
     os.execute(YABAI .. [[ -m window --toggle float]])
+    leader_mode:exit()
+end)
+leader_bind("", "s", function()
+    os.execute(YABAI .. [[ -m window --toggle sticky]])
+    leader_mode:exit()
 end)
 
 -- interact with spaces
