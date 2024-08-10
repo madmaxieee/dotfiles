@@ -96,7 +96,7 @@ end)
 
 -- yabai debug query
 leader_bind("shift", "q", function()
-    os.execute(YABAI .. [[ -m query --windows --space > /tmp/query]])
+    os.execute(YABAI .. [[ -m query --windows --space > /tmp/yabai-debug-query.json]])
     hs.alert("saved yabai query result")
     leader_mode:exit()
 end)
