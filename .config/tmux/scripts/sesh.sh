@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-tmux new-session -d -s main -c "$HOME"
+tmux new-session -d -s main -c "$HOME" > /dev/null 2>&1 
 
 session="$(
  sesh list | grep -v -E '.__popup$' | fzf-tmux -p 55%,60% \
