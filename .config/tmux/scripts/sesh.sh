@@ -1,5 +1,9 @@
 #! /usr/bin/env bash
 
+if tmux display-message -p "#S" | grep -q -E ".__popup$"; then
+	exit 0
+fi
+
 tmux new-session -d -s main -c "$HOME" > /dev/null 2>&1 
 
 session="$(
