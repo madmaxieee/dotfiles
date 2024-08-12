@@ -13,6 +13,7 @@ abbr -a -- pm pnpm
 abbr -a -- py python3
 abbr -a -- pt poetry
 abbr -a -- ipy ipython
+abbr -a -- v nvim
 abbr -a -- vi nvim
 abbr -a -- vim nvim
 abbr -a -- dco docker compose
