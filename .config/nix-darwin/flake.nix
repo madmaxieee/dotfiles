@@ -89,6 +89,8 @@
           pkgs.nixfmt-classic
         ];
 
+        environment.shells = [ pkgs.fish ];
+
         homebrew = {
           enable = true;
           brews = [ "coreutils" "findutils" "imagemagick" ];
