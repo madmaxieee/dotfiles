@@ -48,6 +48,7 @@
           pkgs.fzf
           pkgs.jq
           pkgs.mods
+          pkgs.gh
           pkgs.pass
           pkgs.gnupg
 
