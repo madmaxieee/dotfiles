@@ -23,36 +23,45 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core
     , homebrew-cask }:
     let
-      configuration = { pkgs, ... }: {
+      system = "aarch64-darwin";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
+      configuration = { ... }: {
         # List packages installed in system profile. To search by name, run:
-        # $ nix-env -qaP | grep wget
         environment.systemPackages = [
           pkgs.neovim
-          pkgs.vim
           pkgs.fish
           pkgs.tmux
           pkgs.git
-          pkgs.zig
+          pkgs.vim
+          pkgs.stow
+
           pkgs.sesh
           pkgs.atuin
           pkgs.fzf
           pkgs.jq
+          pkgs.mods
+          pkgs.pass
+
+          pkgs.llvm_17
+          pkgs.jdk21_headless
+          pkgs.micromamba
+          pkgs.zig
+
+          pkgs.kitty
+          pkgs._1password
 
           pkgs.luajitPackages.luv
           pkgs.luajitPackages.sqlite
-
-          pkgs.micromamba
-          pkgs.stow
-
-          pkgs.kitty
-
           pkgs.nixfmt-classic
         ];
 
         homebrew = {
           enable = true;
           brews = [ "coreutils" "findutils" "imagemagick" ];
-          casks = [ "hammerspoon" ];
+          casks = [ "hammerspoon" "spotmenu" ];
           onActivation = {
             autoUpdate = true;
             cleanup = "zap";
@@ -96,7 +105,7 @@
         system.stateVersion = 4;
 
         # The platform the configuration will be used on.
-        nixpkgs.hostPlatform = "aarch64-darwin";
+        nixpkgs.hostPlatform = system;
 
         security.pam.enableSudoTouchIdAuth = true;
 

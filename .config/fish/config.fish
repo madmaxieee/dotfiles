@@ -43,11 +43,8 @@ set -gx PATH "$PNPM_HOME" $PATH
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-set -gx PATH $HOME/.cabal/bin $PATH /Users/madmax/.ghcup/bin # ghcup-env
-
-set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
-set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
+# set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
+# set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
 
 set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -type d -name lib)
 
