@@ -31,6 +31,10 @@
         inherit system;
         config = { allowUnfree = true; };
       };
+      taps = {
+        "homebrew/core" = homebrew-core;
+        "homebrew/cask" = homebrew-cask;
+      };
       configuration = { ... }: {
         users.users.madmax.home = "/Users/madmax";
 
@@ -89,6 +93,7 @@
           enable = true;
           brews = [ "coreutils" "findutils" "imagemagick" ];
           casks = [ "hammerspoon" "spotmenu" ];
+          taps = builtins.attrNames taps;
           onActivation = {
             autoUpdate = true;
             cleanup = "zap";
@@ -160,10 +165,7 @@
               user = "madmax";
 
               # Optional: Declarative tap management
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-              };
+              taps = taps;
 
               autoMigrate = true;
             };
