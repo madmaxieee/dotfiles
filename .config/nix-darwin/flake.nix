@@ -57,6 +57,7 @@
           pkgs.zig
 
           pkgs.kitty
+          pkgs.espanso
           pkgs._1password
 
           pkgs.luajitPackages.luv
