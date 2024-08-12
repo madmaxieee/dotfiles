@@ -44,6 +44,7 @@
           pkgs.jq
           pkgs.mods
           pkgs.pass
+          pkgs.gnupg
 
           pkgs.llvm_17
           pkgs.jdk21_headless
