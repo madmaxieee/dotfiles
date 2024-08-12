@@ -64,6 +64,22 @@
         # Auto upgrade nix package and the daemon service.
         services.nix-daemon.enable = true;
         # nix.package = pkgs.nix;
+        services.yabai = {
+          enable = true;
+          package = pkgs.yabai;
+          enableScriptingAddition = true;
+        };
+        services.skhd = {
+          enable = true;
+          package = pkgs.skhd;
+        };
+        services.jankyborders = {
+          enable = true;
+          package = pkgs.jankyborders;
+          active_color = "0xaae1e3e4";
+          inactive_color = "0x00494d64";
+          width = 3.0;
+        };
 
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
