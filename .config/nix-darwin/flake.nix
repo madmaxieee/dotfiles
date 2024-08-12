@@ -67,6 +67,7 @@
           pkgs.tealdeer
           pkgs.tokei
           pkgs.typos
+          pkgs.zoxide
 
           pkgs.llvm_17
           pkgs.jdk21_headless
