@@ -49,6 +49,7 @@
           pkgs.jq
           pkgs.mods
           pkgs.gh
+          pkgs.lazygit
           pkgs.pass
           pkgs.gnupg
 
