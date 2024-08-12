@@ -17,11 +17,14 @@
       flake = false;
     };
 
-    # home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core
-    , homebrew-cask }:
+    , homebrew-cask, home-manager }:
     let
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
@@ -29,6 +32,8 @@
         config = { allowUnfree = true; };
       };
       configuration = { ... }: {
+        users.users.madmax.home = "/Users/madmax";
+
         # List packages installed in system profile. To search by name, run:
         environment.systemPackages = [
           pkgs.neovim
@@ -141,6 +146,12 @@
 
               autoMigrate = true;
             };
+          }
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.madmax = import ./home.nix;
           }
         ];
       };
