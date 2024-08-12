@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PATH="/bin:/opt/homebrew/bin"
+PATH="/run/current-system/sw/bin:$PATH"
 
 target_space_index="$1"
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PATH="/opt/homebrew/bin"
+PATH="/run/current-system/sw/bin:$PATH"
 
 direction=$1
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # focus a space while ignoring Arc PIP windows
 
-PATH="/opt/homebrew/bin"
+PATH="/run/current-system/sw/bin:$PATH"
 
 space_index=$1
 

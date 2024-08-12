@@ -36,6 +36,7 @@
           pkgs.sesh
           pkgs.atuin
           pkgs.fzf
+          pkgs.jq
 
           pkgs.luajitPackages.luarocks
 
@@ -50,7 +51,7 @@
         homebrew = {
           enable = true;
           brews = [ "coreutils" "findutils" "imagemagick" ];
-          casks = [ ];
+          casks = [ "hammerspoon" ];
           onActivation = {
             autoUpdate = true;
             cleanup = "zap";
@@ -126,10 +127,6 @@
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
               };
-
-              # Optional: Enable fully-declarative tap management
-              # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-              # mutableTaps = false;
 
               autoMigrate = true;
             };

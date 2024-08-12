@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # focusing display in direction while ignoring Arc PIP windows
 
-PATH="/opt/homebrew/bin"
+PATH="/run/current-system/sw/bin:$PATH"
 
 direction=$1
 

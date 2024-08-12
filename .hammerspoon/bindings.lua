@@ -1,4 +1,4 @@
-local YABAI = "/opt/homebrew/bin/yabai"
+local YABAI = "/run/current-system/sw/bin/yabai"
 
 local leader_mode = hs.hotkey.modal.new("shift", "space")
 
