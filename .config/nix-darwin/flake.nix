@@ -38,7 +38,8 @@
           pkgs.fzf
           pkgs.jq
 
-          pkgs.luajitPackages.luarocks
+          pkgs.luajitPackages.luv
+          pkgs.luajitPackages.sqlite
 
           pkgs.micromamba
           pkgs.stow

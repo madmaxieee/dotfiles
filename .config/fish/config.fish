@@ -30,8 +30,8 @@ end
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-set -gx MAMBA_EXE "/run/current-system/sw/bin/micromamba"
-set -gx MAMBA_ROOT_PREFIX "/Users/madmax/micromamba"
+set -gx MAMBA_EXE /run/current-system/sw/bin/micromamba
+set -gx MAMBA_ROOT_PREFIX /Users/madmax/micromamba
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 
@@ -49,7 +49,6 @@ set -gx PATH $HOME/.cabal/bin $PATH /Users/madmax/.ghcup/bin # ghcup-env
 set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
 set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
 
-eval "$(luarocks path --bin)"
 set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -type d -name lib)
 
 if test -d (brew --prefix)"/share/fish/completions"
