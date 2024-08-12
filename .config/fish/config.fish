@@ -60,3 +60,11 @@ set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -t
 # This section can be safely removed at any time if needed.
 test -r '/Users/madmax/.opam/opam-init/init.fish' && source '/Users/madmax/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
 # END opam configuration
+
+if test -d (brew --prefix)"/share/fish/completions"
+    set -p fish_complete_path (brew --prefix)/share/fish/completions
+end
+
+if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+    set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+end
