@@ -53,10 +53,27 @@
           pkgs.pass
           pkgs.gnupg
 
+          pkgs.ripgrep
+          pkgs.fd
+          pkgs.eza
+          pkgs.bat
+          pkgs.difftastic
+          pkgs.rm-improved
+          pkgs.dust
+          pkgs.delta
+          pkgs.mprocs
+          pkgs.hyperfine
+          pkgs.starship
+          pkgs.tealdeer
+          pkgs.tokei
+          pkgs.typos
+
           pkgs.llvm_17
           pkgs.jdk21_headless
           pkgs.micromamba
+          pkgs.uv
           pkgs.zig
+          pkgs.fnm
 
           pkgs.kitty
           pkgs.espanso
