@@ -30,8 +30,8 @@ end
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-set -gx MAMBA_EXE /opt/homebrew/opt/micromamba/bin/micromamba
-set -gx MAMBA_ROOT_PREFIX /Users/madmax/micromamba
+set -gx MAMBA_EXE "/run/current-system/sw/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/Users/madmax/micromamba"
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 
@@ -51,15 +51,6 @@ set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
 
 eval "$(luarocks path --bin)"
 set -gx DYLD_LIBRARY_PATH (find /opt/homebrew/Cellar/imagemagick/ -maxdepth 2 -type d -name lib)
-
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-test -r '/Users/madmax/.opam/opam-init/init.fish' && source '/Users/madmax/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
-# END opam configuration
 
 if test -d (brew --prefix)"/share/fish/completions"
     set -p fish_complete_path (brew --prefix)/share/fish/completions

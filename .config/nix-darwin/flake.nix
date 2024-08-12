@@ -3,11 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -16,6 +16,8 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    # home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core
@@ -31,14 +33,30 @@
           pkgs.tmux
           pkgs.git
           pkgs.zig
+          pkgs.sesh
+          pkgs.atuin
+          pkgs.fzf
+
+          pkgs.luajitPackages.luarocks
+
+          pkgs.micromamba
+          pkgs.stow
+
+          pkgs.kitty
 
           pkgs.nixfmt-classic
         ];
 
         homebrew = {
           enable = true;
-          brews = [ ];
+          brews = [ "coreutils" "findutils" "imagemagick" ];
           casks = [ ];
+          onActivation = {
+            autoUpdate = true;
+            cleanup = "zap";
+            upgrade = true;
+            extraFlags = [ "--verbose" "--debug" ];
+          };
         };
 
         environment.variables = { EDITOR = "nvim"; };
