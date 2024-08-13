@@ -35,8 +35,18 @@
         "homebrew/core" = homebrew-core;
         "homebrew/cask" = homebrew-cask;
       };
+      brew_config = { username }:
+        inputs.nix-homebrew.darwinModules.nix-homebrew {
+          lib = nix-darwin.lib;
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = username;
+            taps = taps;
+            autoMigrate = true;
+          };
+        };
       configuration = { ... }: {
-        users.users.madmax.home = "/Users/madmax";
 
         # List packages installed in system profile. To search by name, run:
         environment.systemPackages = [
@@ -62,6 +72,7 @@
           pkgs.eza
           pkgs.bat
           pkgs.difftastic
+
           pkgs.rm-improved
           pkgs.dust
           pkgs.delta
@@ -87,9 +98,8 @@
           pkgs.luajitPackages.luv
           pkgs.luajitPackages.sqlite
           pkgs.nixfmt-classic
-        ];
 
-        environment.shells = [ pkgs.fish ];
+        ];
 
         homebrew = {
           enable = true;
@@ -104,6 +114,7 @@
           };
         };
 
+        environment.shells = [ pkgs.fish ];
         environment.variables = { EDITOR = "nvim"; };
 
         # Auto upgrade nix package and the daemon service.
@@ -125,6 +136,11 @@
           inactive_color = "0x00494d64";
           width = 3.0;
         };
+
+        fonts.packages = [
+          (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+          pkgs.victor-mono
+        ];
 
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
@@ -154,29 +170,13 @@
       darwinConfigurations."madmax-mbp" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
-          inputs.nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              # Install Homebrew under the default prefix
-              enable = true;
-
-              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-              enableRosetta = true;
-
-              # User owning the Homebrew prefix
-              user = "madmax";
-
-              # Optional: Declarative tap management
-              taps = taps;
-
-              autoMigrate = true;
-            };
-          }
+          (brew_config { username = "madmax"; })
+          { users.users.madmax.home = "/Users/madmax"; }
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.madmax = import ./home.nix;
+            home-manager.users.madmax = import ./home/madmax-mbp.nix;
           }
         ];
       };
