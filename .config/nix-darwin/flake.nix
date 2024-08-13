@@ -170,8 +170,13 @@
       darwinConfigurations."madmax-mbp" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
+          {
+            users.users.madmax = {
+              home = "/Users/madmax";
+              shell = pkgs.fish;
+            };
+          }
           (brew_config { username = "madmax"; })
-          { users.users.madmax.home = "/Users/madmax"; }
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
