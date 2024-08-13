@@ -9,6 +9,7 @@ if status is-interactive
 
     set -gx _ZO_DATA_DIR "$HOME/.local/share"
     set -gx _ZO_RESOLVE_SYMLINKS 1
+    set -gx _ZO_EXCLUDE_DIRS "/nix/store/*"
     zoxide init fish | source
 
     if [ $TERM = xterm-kitty ]
